@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Study Planner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>🎓 AI Study Planner</h1>
+  <p>Enter your details and let Generative AI build your personalised plan.</p>
+</header>
+
+<main class="layout">
+  <section class="card form-card">
+    <h2>📝 Student Details</h2>
+    <form id="form">
+      <label>Student name<input id="name" required placeholder="e.g. Rahul"></label>
+      <label>Subject<input id="subject" required placeholder="e.g. Generative Artificial Intelligence"></label>
+      <label>Topics (one per line)
+        <textarea id="topics" rows="6" required placeholder="Introduction to Generative AI&#10;Neural Networks&#10;Transformers"></textarea>
+      </label>
+      <div class="row">
+        <label>Hours / day<input id="hours" type="number" min="0.5" max="16" step="0.5" value="3" required></label>
+        <label>Exam date<input id="exam" type="date" required></label>
+      </div>
+      <label>Knowledge level
+        <select id="level">
+          <option>Beginner</option><option>Intermediate</option><option>Advanced</option>
+        </select>
+      </label>
+      <label>Prompt style
+        <select id="mode">
+          <option value="advanced">Advanced (expert planner)</option>
+          <option value="structured">Structured (day-wise)</option>
+          <option value="basic">Basic</option>
+        </select>
+      </label>
+      <button type="submit" id="go">✨ Generate Study Plan</button>
+      <button type="button" id="sample" class="ghost">Fill sample data (Rahul)</button>
+    </form>
+  </section>
+
+  <section class="results">
+    <div id="loading" class="card center hidden"><div class="spinner"></div><p>The AI is building your plan…</p></div>
+    <div id="error" class="card error hidden"></div>
+    <div id="empty" class="card center"><p>Your personalised plan will appear here.</p></div>
+
+    <div id="output" class="hidden">
+      <div class="card" id="summaryCard"></div>
+
+      <div class="card">
+        <h2>📈 Progress Tracker</h2>
+        <div class="bar"><div id="barFill"></div></div>
+        <p id="barText"></p>
+      </div>
+
+      <div class="card">
+        <h2>🎯 Topic Priorities &amp; Revision Dates</h2>
+        <div id="topicCards" class="grid"></div>
+      </div>
+
+      <div class="card">
+        <h2>🗓️ Daily Timetable</h2>
+        <div class="table-wrap"><table id="timetable"></table></div>
+      </div>
+
+      <div class="card">
+        <h2>🔁 Revision Schedule</h2>
+        <ul id="revision"></ul>
+        <p id="finalStrategy" class="note"></p>
+      </div>
+
+      <div class="card">
+        <h2>⚠️ Difficult &amp; ⭐ Important Topics</h2>
+        <div class="row2"><div><h3>Difficult</h3><ul id="difficult"></ul></div><div><h3>Important</h3><ul id="important"></ul></div></div>
+      </div>
+
+      <div class="card">
+        <h2>✍️ Practice Recommendations</h2>
+        <ul id="practice"></ul>
+      </div>
+
+      <div class="card">
+        <h2>💡 Study Tips <span id="levelBadge" class="badge"></span></h2>
+        <ul id="tips"></ul>
+        <h3>Exam preparation strategy</h3>
+        <p id="examStrategy"></p>
+      </div>
+
+      <div class="card">
+        <h2>🧠 Quiz Generator</h2>
+        <button id="quizBtn">Generate Quiz (5 MCQ + 5 Short)</button>
+        <div id="quizLoading" class="hidden"><div class="spinner"></div></div>
+        <div id="quiz"></div>
+      </div>
+
+      <button id="print" class="ghost">🖨️ Print / Save as PDF</button>
+    </div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

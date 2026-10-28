@@ -1,0 +1,9 @@
+{
+  "name": "ai-study-planner",
+  "version": "1.0.0",
+  "description": "AI-powered Student Study Planner (Generative AI Lab, Assignment 7)",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" },
+  "license": "MIT"
+}
